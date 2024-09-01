@@ -14,10 +14,31 @@
         <div id="app">
             
             <header>
-
+                <h1>
+                    Todolist
+                </h1>
             </header>
             <main>
-                {{ message }}
+                <div class="container">
+                    <h5>
+                        Aggiungi un nuovo task
+                    </h5>
+                    <input  v-model="newTask['text']" type="text">
+                    <button @click="addTask()">
+                        Add
+                    </button>
+                    <ul >
+                        <li  v-for="(task, index) in todos" >
+                            {{ task.text }}
+                            <button @click="removeTask(index)">
+                                X
+                            </button>
+                        </li>
+                        
+                        
+                    </ul>
+                    
+                </div>
             </main>
 
         </div>
