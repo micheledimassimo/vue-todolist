@@ -17,17 +17,19 @@ const { createApp } = Vue;
                         done: false
                     }
                 ],
-                verified: '',
+                
                 newTask: {
                     text: '',
-                    done: ''
+                    done: false
                 }
             }
         },
         methods: {
             addTask() {
-                if (this.newTask.text != '') {
-                    this.todos.push(this.newTask.text);
+                if (this.newTask != '') {
+                    this.todos.push({
+                        ...this.newTask
+                    });
 
                     this.newTask.text = '';
                 }
